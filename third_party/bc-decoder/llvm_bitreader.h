@@ -24,7 +24,7 @@
 
 #pragma once
 
-#include <assert.h>
+#include "internal/assert.h"
 #include <string.h>
 
 namespace LLVMBC

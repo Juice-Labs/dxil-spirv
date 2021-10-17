@@ -17,7 +17,7 @@
  */
 
 #include "thread_local_allocator.hpp"
-#include <assert.h>
+#include "internal/assert.h"
 #include <stdint.h>
 #include <memory>
 

@@ -22,7 +22,7 @@
 #include "module.hpp"
 #include "type.hpp"
 #include <algorithm>
-#include <assert.h>
+#include "internal/assert.h"
 
 namespace LLVMBC
 {

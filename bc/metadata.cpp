@@ -19,7 +19,7 @@
 #include "metadata.hpp"
 #include "module.hpp"
 #include "value.hpp"
-#include <assert.h>
+#include "internal/assert.h"
 #include <utility>
 
 namespace LLVMBC

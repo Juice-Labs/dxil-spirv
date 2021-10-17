@@ -18,7 +18,7 @@
 
 #include "instruction.hpp"
 #include "cast.hpp"
-#include <assert.h>
+#include "internal/assert.h"
 
 namespace LLVMBC
 {

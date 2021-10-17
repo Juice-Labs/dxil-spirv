@@ -20,7 +20,7 @@
 
 #include "thread_local_allocator.hpp"
 #include "spirv.hpp"
-#include <assert.h>
+#include "internal/assert.h"
 #include <initializer_list>
 #include <stdint.h>
 

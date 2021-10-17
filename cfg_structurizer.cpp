@@ -23,7 +23,7 @@
 #include "node_pool.hpp"
 #include "spirv_module.hpp"
 #include <algorithm>
-#include <assert.h>
+#include "internal/assert.h"
 
 namespace dxil_spv
 {

@@ -19,7 +19,7 @@
 #include "type.hpp"
 #include "cast.hpp"
 #include "context.hpp"
-#include <assert.h>
+#include "internal/assert.h"
 
 namespace LLVMBC
 {

@@ -24,7 +24,7 @@
 #include "module.hpp"
 #include "type.hpp"
 #include "value.hpp"
-#include <assert.h>
+#include "internal/assert.h"
 #include <sstream>
 #include <type_traits>
 
