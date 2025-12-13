@@ -7366,6 +7366,16 @@ bool CFGStructurizer::rewrite_invalid_loop_breaks()
 		dispatcher->ir.phi.push_back(std::move(phi));
 		dispatcher->add_branch(invalid_target);
 
+		String graphviz_path;
+		if (const char *env = getenv("DXIL_SPIRV_GRAPHVIZ_PATH"))
+			graphviz_path = env;
+
+		if (!graphviz_path.empty())
+		{
+			auto graphviz_input = graphviz_path + ".rewrite";
+			log_cfg_graphviz(graphviz_input.c_str());
+		}
+
 		recompute_cfg();
 		return true;
 	}
