@@ -1305,7 +1305,19 @@ bool CFGStructurizer::run()
 		}
 	}
 
+	if (!graphviz_path.empty())
+	{
+		auto graphviz_split = graphviz_path + ".pre-cbl";
+		log_cfg_graphviz(graphviz_split.c_str());
+	}
+
 	create_continue_block_ladders();
+
+	if (!graphviz_path.empty())
+	{
+		auto graphviz_split = graphviz_path + ".post-cbl";
+		log_cfg_graphviz(graphviz_split.c_str());
+	}
 
 	while (serialize_interleaved_merge_scopes())
 	{
@@ -1376,6 +1388,12 @@ bool CFGStructurizer::run()
 			auto graphviz_final = graphviz_path + ".partial-struct0";
 			log_cfg_graphviz(graphviz_final.c_str());
 		}
+	}
+
+	if (!graphviz_path.empty())
+	{
+		auto graphviz_final = graphviz_path + ".pre-struct0";
+		log_cfg_graphviz(graphviz_final.c_str());
 	}
 
 	update_structured_loop_merge_targets();
