@@ -7961,7 +7961,8 @@ Vector<llvm::BasicBlock *> Converter::Impl::build_function_bb_visit_order_legacy
 		if (!bb_map.count(succ))
 		{
 			to_process.push_back(succ);
-			build_function_bb_visit_register(succ, pool, dxil_spv::to_string(++fake_label_id));
+			// build_function_bb_visit_register(succ, pool, dxil_spv::to_string(++fake_label_id));
+			build_function_bb_visit_register(succ, pool, dxil_spv::to_string(succ->get_tween_id()));
 		}
 
 		bb_map[block]->node->add_branch(bb_map[succ]->node);
