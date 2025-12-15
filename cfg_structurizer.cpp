@@ -5482,7 +5482,7 @@ CFGNode *CFGStructurizer::find_break_target_for_selection_construct(CFGNode *ido
 				// The breaking path might be vestigal.
 				// I.e., it might just be exiting directly without dominating anything.
 				// Have to detect this false positive, since it's not really a break, just early return.
-				if (!n->dominates_all_reachable_exits() && strncmp(n->name.c_str(), "5916", 4) != 0)
+				if (!n->dominates_all_reachable_exits() /*&& strncmp(n->name.c_str(), "5916", 4) != 0*/)
 					candidates.push_back(n);
 			}
 		}
