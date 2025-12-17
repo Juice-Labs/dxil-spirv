@@ -5443,6 +5443,35 @@ CFGNode *CFGStructurizer::create_helper_succ_block(CFGNode *node)
 	return succ_node;
 }
 
+bool CFGStructurizer::is_within_loop(CFGNode* node)
+{
+    CFGNode* continue_node = find_loop_continue_node(node);
+    if (continue_node && continue_node->post_dominates(node))
+    {
+        CFGNode* header_node = continue_node->succ_back_edge;
+        assert(header_node);
+        return header_node->dominates(node);
+    }
+    return false
+}
+
+CFGNode *CFGStructurizer::find_loop_continue_node(const CFGNode* node)
+{
+    if (node)
+    {
+        if (node->succ_back_edge)
+            return node->succ_back_edge;
+
+        for (const CFGNode* node : node->succ)
+        {
+            const CFGNode* continue_node = find_loop_continue_node(node);
+            if (continue_node)
+                return continue_node;
+        }
+    }
+    return nullptr;
+}
+
 CFGNode *CFGStructurizer::find_common_post_dominator(const Vector<CFGNode *> &candidates)
 {
 	if (candidates.empty())
